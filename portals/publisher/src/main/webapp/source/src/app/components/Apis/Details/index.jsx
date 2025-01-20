@@ -78,6 +78,7 @@ import ExternalStores from './ExternalStores/ExternalStores';
 import { APIProvider } from './components/ApiContext';
 import CreateNewVersion from './NewVersion/NewVersion';
 import TryOutConsole from './TryOut/TryOutConsole';
+import Labels from './Labels/Labels';
 
 const PREFIX = 'index';
 
@@ -1053,6 +1054,10 @@ class Details extends Component {
                                         path={Details.subPaths.PROPERTIES_PRODUCT}
                                         component={() => <Properties api={api} />}
                                     />
+                                    <Route path={Details.subPaths.LABELS} component={() => <Labels />} />
+                                    <Route
+                                        path={Details.subPaths.LABELS_PRODUCT}
+                                        component={() => <Labels />} />
                                     <Route path={Details.subPaths.NEW_VERSION} component={() => <CreateNewVersion />} />
                                     <Route
                                         path={Details.subPaths.NEW_VERSION_PRODUCT}
@@ -1132,6 +1137,8 @@ Details.subPaths = {
     BUSINESS_INFO_PRODUCT: '/api-products/:apiprod_uuid/business-info',
     PROPERTIES: '/apis/:api_uuid/properties',
     PROPERTIES_PRODUCT: '/api-products/:apiprod_uuid/properties',
+    LABELS: '/apis/:api_uuid/labels',
+    LABELS_PRODUCT: '/api-products/:api_uuid/labels',
     NEW_VERSION: '/apis/:api_uuid/new_version',
     NEW_VERSION_PRODUCT: '/api-products/:api_uuid/new_version',
     MONETIZATION: '/apis/:api_uuid/monetization',

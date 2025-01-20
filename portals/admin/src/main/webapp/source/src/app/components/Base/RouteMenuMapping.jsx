@@ -61,6 +61,7 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import ListApis from '../APISettings/ListApis';
 import UsageReport from '../APISettings/UsageReport';
+import ListLabels from '../Labels/ListLabels';
 
 const RouteMenuMapping = (intl) => [
     {
@@ -205,6 +206,16 @@ const RouteMenuMapping = (intl) => [
         }),
         path: '/settings/api-categories',
         component: APICategories,
+        icon: <CategoryIcon />,
+    },
+    {
+        id: 'Labels',
+        displayText: intl.formatMessage({
+            id: 'Base.RouteMenuMapping.labels',
+            defaultMessage: 'Labels',
+        }),
+        path: '/settings/labels',
+        component: ListLabels,
         icon: <CategoryIcon />,
     },
     {

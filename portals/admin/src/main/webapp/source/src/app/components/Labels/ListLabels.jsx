@@ -29,8 +29,8 @@ import ListBase from 'AppComponents/AdminPages/Addons/ListBase';
 import DescriptionIcon from '@mui/icons-material/Description';
 import Link from '@mui/material/Link';
 import Configurations from 'Config';
-import Delete from 'AppComponents/APICategories/DeleteAPICategory';
-import AddEdit from 'AppComponents/APICategories/AddEditAPICategory';
+import Delete from 'AppComponents/Labels/DeleteLabel';
+import AddEdit from 'AppComponents/Labels/AddEditLabel';
 import EditIcon from '@mui/icons-material/Edit';
 import { Box } from '@mui/material';
 
@@ -69,14 +69,14 @@ const TruncatedNameCell = ({ children }) => {
  * Render a list
  * @returns {JSX} Header AppBar components.
  */
-export default function ListApiCategories() {
+export default function ListLabels() {
     const intl = useIntl();
     const columProps = [
         { name: 'id', options: { display: false } },
         {
             name: 'name',
             label: intl.formatMessage({
-                id: 'AdminPages.ApiCategories.table.header.category.name',
+                id: 'AdminPages.Labels.table.header.category.name',
                 defaultMessage: 'Category Name',
             }),
             options: {
@@ -90,7 +90,7 @@ export default function ListApiCategories() {
         {
             name: 'description',
             label: intl.formatMessage({
-                id: 'AdminPages.ApiCategories.table.header.category.description',
+                id: 'AdminPages.Labels.table.header.category.description',
                 defaultMessage: 'Description',
             }),
             options: {
@@ -101,7 +101,7 @@ export default function ListApiCategories() {
         {
             name: 'numberOfAPIs',
             label: intl.formatMessage({
-                id: 'AdminPages.ApiCategories.table.header.category.number.of.apis',
+                id: 'AdminPages.Labels.table.header.category.number.of.apis',
                 defaultMessage: 'Number of APIs',
             }),
             options: {
@@ -112,19 +112,19 @@ export default function ListApiCategories() {
     ];
     const addButtonProps = {
         triggerButtonText: intl.formatMessage({
-            id: 'AdminPages.ApiCategories.List.addButtonProps.triggerButtonText',
-            defaultMessage: 'Add API Category',
+            id: 'AdminPages.Labels.List.addButtonProps.triggerButtonText',
+            defaultMessage: 'Add Label',
         }),
         /* This title is what as the title of the popup dialog box */
         title: intl.formatMessage({
-            id: 'AdminPages.ApiCategories.List.addButtonProps.title',
-            defaultMessage: 'Add API Category',
+            id: 'AdminPages.Labels.List.addButtonProps.title',
+            defaultMessage: 'Add Label',
         }),
     };
     const searchProps = {
         searchPlaceholder: intl.formatMessage({
-            id: 'AdminPages.ApiCategories.List.search.default',
-            defaultMessage: 'Search by API Category name',
+            id: 'AdminPages.Labels.List.search.default',
+            defaultMessage: 'Search by Label name',
         }),
         active: true,
     };
@@ -148,7 +148,7 @@ export default function ListApiCategories() {
                             <ListItemText
                                 primary={(
                                     <FormattedMessage
-                                        id='AdminPages.ApiCategories.List.help.link.one'
+                                        id='AdminPages.Labels.List.help.link.one'
                                         defaultMessage='API Category based Grouping'
                                     />
                                 )}
@@ -160,31 +160,17 @@ export default function ListApiCategories() {
         ),
         pageStyle: 'half',
         title: intl.formatMessage({
-            id: 'AdminPages.ApiCategories.List.title.apicategories',
-            defaultMessage: 'API Categories',
+            id: 'AdminPages.Labels.List.title.labels',
+            defaultMessage: 'Labels',
         }),
     };
 
     const emptyBoxProps = {
-        content: (
-            <Typography variant='body2' color='textSecondary' component='p'>
-                <FormattedMessage
-                    id='AdminPages.ApiCategories.List.empty.content.apicategories'
-                    defaultMessage={
-                        'You can use API categories to group APIs. In previous versions of WSO2 API Manager, '
-                        + 'the process of grouping APIs was carried out by using tag-wise groups.'
-                        + ' Unlike tag-wise grouping, API categories do not use a naming convention.'
-                        + ' Therefore, the admin does not need to take into consideration any naming'
-                        + ' conventions when using API category-based grouping.'
-                    }
-                />
-            </Typography>
-        ),
         title: (
             <Typography gutterBottom variant='h5' component='h2'>
                 <FormattedMessage
-                    id='AdminPages.ApiCategories.List.empty.title.apicategories'
-                    defaultMessage='asdasd'
+                    id='AdminPages.Labels.List.empty.title.labels'
+                    defaultMessage='Labels'
                 />
             </Typography>
         ),

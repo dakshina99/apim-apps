@@ -42,6 +42,7 @@ import API from 'AppData/api';
 import MUIAlert from 'AppComponents/Shared/MuiAlert';
 import DeleteApiButton from './DeleteApiButton';
 import CreateNewVersionButton from './CreateNewVersionButton';
+import LabelsButton from './LabelsButton';
 
 const PREFIX = 'APIDetailsTopMenu';
 const classes = {
@@ -379,7 +380,8 @@ const APIDetailsTopMenu = (props) => {
                                 </MenuItem>
                             )}
                             {allRevisions && !isAPIProduct && allRevisions.map((item) => (
-                                <MenuItem value={item.id} component={Link} to={'/apis/' + item.id + '/' + lastIndex}>
+                                <MenuItem key={item.id} 
+                                    value={item.id} component={Link} to={'/apis/' + item.id + '/' + lastIndex}>
                                     <Grid
                                         container
                                         direction='row'
@@ -467,8 +469,12 @@ const APIDetailsTopMenu = (props) => {
                 {/* end of Page error banner */}
                 {api.isRevision || (settings && settings.portalConfigurationOnlyModeEnabled)
                     ? null :
-                    <CreateNewVersionButton buttonClass={classes.viewInStoreLauncher}
-                        api={api} isAPIProduct={isAPIProduct} />}
+                    <>
+                        <CreateNewVersionButton buttonClass={classes.viewInStoreLauncher}
+                            api={api} isAPIProduct={isAPIProduct} />
+                        <LabelsButton buttonClass={classes.viewInStoreLauncher}
+                            api={api} isAPIProduct={isAPIProduct} />
+                    </>}
                 {(isDownloadable) && <VerticalDivider height={70} />}
                 <div className={classes.downloadApi}>
                     {(isDownloadable) && (
